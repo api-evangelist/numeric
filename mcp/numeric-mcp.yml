@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://api.numeric.io/mcp
+docs: https://www.numeric.io/claude-skills-library
+server:
+  name: numeric
+  transport: http                       # streamable HTTP (JSON-RPC over HTTP)
+  url: https://api.numeric.io/mcp
+  authentication:
+    type: oauth2
+    protected_resource: https://api.numeric.io/.well-known/oauth-protected-resource/mcp
+    authorization_server: https://auth.numeric.io
+    bearer_methods_supported: [header]
+    scopes: [openid, profile, email, offline_access]
+    grant_types: [authorization_code, refresh_token, "urn:ietf:params:oauth:grant-type:device_code"]
+    dynamic_client_registration: true    # registration_endpoint advertised
+# The MCP endpoint returns 401 with an RFC 9728 WWW-Authenticate challenge for
+# unauthenticated callers; the tool list below is the provider's documented
+# "Numeric Toolkit" agent-skill surface (https://www.numeric.io/claude-skills-library),
+# not an authenticated tools/list capture. Tool names are the documented use cases,
+# not verified MCP tool identifiers.
+documented_use_cases:
+- Accrual Identification & Journal Entry
+- Department Anomaly Scan — GL Miscoding Cleanup
+- Journal Entry Posting — Support-to-NetSuite
+- Audit Evidence Export
+- Auto-Draft Flux Explanations
+- Consolidated Flux — Variance Commentary Rollup
+- Clean Report Export
+- Executive Report — Board-Ready Financials
+- Financial Metrics — Ratios & Analytics Inline
+- Report + Transaction Detail
+- Close Pulse — Live Close Dashboard
+- Close Retrospective — Post-Close Analysis
+- Cross-Workspace Close Dashboard
+- Overdue Task Nudges — Automated Reminders
+- Reconciliation Leadsheet Workbook

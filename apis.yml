@@ -1,8 +1,28 @@
 aid: numeric
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/numeric.png
 name: Numeric
-description: 'Numeric is a company surfaced as a portfolio company of ivp, menlo-ventures and added to
-  the API Evangelist network as a stub for enrichment. Sector: fintech. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Numeric is an AI close-automation platform that unifies close management, financial
+  reporting, and cash operations for complex, high-volume accounting teams (customers
+  include Brex, Plaid, and Stash). Its products span close checklists and account
+  reconciliation, cash matching and journal-entry automation with bank integrations,
+  and an analytics suite for flux/variance analysis and CFO-ready reporting. Numeric's
+  programmable surface is an OAuth 2.0 / OIDC-protected Model Context Protocol (MCP)
+  server at api.numeric.io/mcp, paired with a published library of Claude Agent Skills
+  ("Numeric Toolkit") that automate month-end close, accruals, reconciliation, audit
+  evidence export, and board-ready reporting. Backed by IVP and Menlo Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/numeric/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -13,11 +33,37 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Fintech
-apis: []
+- Accounting
+- Financial Close
+- Reconciliation
+- MCP
+- Agent Skills
+- OAuth
+apis:
+- name: Numeric MCP API
+  description: >-
+    OAuth-protected Model Context Protocol server exposing Numeric's close-automation
+    toolkit to AI agents. Streamable-HTTP MCP endpoint at api.numeric.io/mcp, guarded
+    by OAuth 2.0 / OIDC (auth.numeric.io) with RFC 9728 protected-resource metadata.
+  humanURL: https://www.numeric.io/claude-skills-library
+  baseURL: https://api.numeric.io
+  tags:
+  - MCP
+  - Agent Skills
+  - Accounting
+  properties:
+  - type: MCPServer
+    url: mcp/numeric-mcp.yml
+  - type: Authentication
+    url: authentication/numeric-authentication.yml
+  - type: OAuthScopes
+    url: scopes/numeric-scopes.yml
+  - type: WellKnown
+    url: well-known/numeric-well-known.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +72,38 @@ maintainers:
 common:
 - type: Website
   url: https://www.numeric.io
+- type: Documentation
+  url: https://www.numeric.io/claude-skills-library
+- type: Blog
+  url: https://numeric.substack.com
+- type: Pricing
+  url: https://www.numeric.io/pricing
+- type: TermsOfService
+  url: https://www.numeric.io/legal/terms
+- type: PrivacyPolicy
+  url: https://www.numeric.io/legal/privacy-policy
+- type: Login
+  url: https://app.numeric.io
+- type: GitHubOrganization
+  url: https://github.com/numeric-io
+- type: MCPServer
+  url: mcp/numeric-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/numeric-authentication.yml
+- type: OAuthScopes
+  url: scopes/numeric-scopes.yml
+- type: WellKnown
+  url: well-known/numeric-well-known.yml
+- type: Conformance
+  url: conformance/numeric-conformance.yml
+- type: LLMsTxt
+  url: llms/numeric-llms.txt
+- type: DomainSecurity
+  url: security/numeric-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1

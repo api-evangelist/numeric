@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.numeric.io/claude-skills-library
+notes: >-
+  Numeric publishes a library of Claude Agent Skills ("Numeric Toolkit") that run
+  against its OAuth-protected MCP server (https://api.numeric.io/mcp). These are the
+  provider's own published skills; the individual skill markdown files are gated
+  behind a demo request, so this index catalogs them by their public library entries.
+  There is no public OpenAPI to ground bespoke skills in, so no additional skills were
+  generated.
+api: mcp/numeric-mcp.yml
+categories:
+- name: Journals & Transactions
+  skills:
+  - name: Accrual Identification & Journal Entry
+    url: https://www.numeric.io/mcp-use-cases/complete-accruals-task
+  - name: Department Anomaly Scan — GL Miscoding Cleanup
+  - name: Journal Entry Posting — Support-to-NetSuite
+- name: Audit & Compliance
+  skills:
+  - name: Audit Evidence Export
+- name: Flux & Variance
+  skills:
+  - name: Auto-Draft Flux Explanations
+  - name: Consolidated Flux — Variance Commentary Rollup
+- name: Reporting & Analysis
+  skills:
+  - name: Clean Report Export
+  - name: Executive Report — Board-Ready Financials
+  - name: Financial Metrics — Ratios & Analytics Inline
+  - name: Report + Transaction Detail
+- name: Close Management
+  skills:
+  - name: Close Pulse — Live Close Dashboard
+  - name: Close Retrospective — Post-Close Analysis
+  - name: Cross-Workspace Close Dashboard
+  - name: Overdue Task Nudges — Automated Reminders
+- name: Reconciliation
+  skills:
+  - name: Reconciliation Leadsheet Workbook

@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: live /.well-known/* metadata on api.numeric.io + auth.numeric.io
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    auth.numeric.io publishes OAuth 2.0 endpoints (authorize/token/introspection/register)
+    with authorization_code, refresh_token, client_credentials and device_code grants.
+- id: oidc
+  conforms: true
+  evidence: >-
+    auth.numeric.io/.well-known/openid-configuration advertises issuer, userinfo,
+    jwks_uri and openid scope (RS256 id_token signing).
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 on both api.numeric.io and auth.numeric.io.
+- id: rfc9728-protected-resource-metadata
+  conforms: true
+  evidence: >-
+    api.numeric.io/.well-known/oauth-protected-resource(/mcp) returns 200; the MCP
+    endpoint issues an RFC 9728 WWW-Authenticate challenge referencing it.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256.
+- id: rfc8628-device-authorization-grant
+  conforms: true
+  evidence: device_authorization_endpoint advertised; device_code grant supported.
+- id: mcp-model-context-protocol
+  conforms: true
+  evidence: OAuth-protected MCP server at https://api.numeric.io/mcp with published skills library.
