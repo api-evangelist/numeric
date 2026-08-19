@@ -5,21 +5,24 @@ source: https://api.numeric.io/mcp
 docs: https://www.numeric.io/claude-skills-library
 server:
   name: numeric
-  transport: http                       # streamable HTTP (JSON-RPC over HTTP)
+  transport: http
   url: https://api.numeric.io/mcp
   authentication:
     type: oauth2
     protected_resource: https://api.numeric.io/.well-known/oauth-protected-resource/mcp
     authorization_server: https://auth.numeric.io
-    bearer_methods_supported: [header]
-    scopes: [openid, profile, email, offline_access]
-    grant_types: [authorization_code, refresh_token, "urn:ietf:params:oauth:grant-type:device_code"]
-    dynamic_client_registration: true    # registration_endpoint advertised
-# The MCP endpoint returns 401 with an RFC 9728 WWW-Authenticate challenge for
-# unauthenticated callers; the tool list below is the provider's documented
-# "Numeric Toolkit" agent-skill surface (https://www.numeric.io/claude-skills-library),
-# not an authenticated tools/list capture. Tool names are the documented use cases,
-# not verified MCP tool identifiers.
+    bearer_methods_supported:
+    - header
+    scopes:
+    - openid
+    - profile
+    - email
+    - offline_access
+    grant_types:
+    - authorization_code
+    - refresh_token
+    - urn:ietf:params:oauth:grant-type:device_code
+    dynamic_client_registration: true
 documented_use_cases:
 - Accrual Identification & Journal Entry
 - Department Anomaly Scan — GL Miscoding Cleanup
@@ -36,3 +39,10 @@ documented_use_cases:
 - Cross-Workspace Close Dashboard
 - Overdue Task Nudges — Automated Reminders
 - Reconciliation Leadsheet Workbook
+deployment:
+  mode: remote
+  endpoint: https://api.numeric.io/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
