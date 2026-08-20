@@ -42,6 +42,15 @@ tags:
 - Reconciliation
 - MCP
 - Agent Skills
+- Authentication
+tags_raw:
+- Company
+- Fintech
+- Accounting
+- Financial Close
+- Reconciliation
+- MCP
+- Agent Skills
 - OAuth
 apis:
 - name: Numeric MCP API
